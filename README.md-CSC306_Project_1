@@ -1,85 +1,91 @@
- CSC-306-Projects
- Projects I did in the class "CSC 306" (Interdisciplinary Programming) at San Francisco State University. These projects use Python to practice data analysis skills useful in life science fields
-# Jessie Davidson
-# CSC 306
-# Project 1: Gene Finding
-# Gene Finding Project Report
+CSC-306-Projects
 
-# Pseudocode:
-# •	Part 1 – read_fasta:
-# The function ”read_fasta”  reads a fasta file and puts its contents into a string. 
-# I then called the function  “read_fasta,” input the file 'X73525.fasta', and assigned it to the variable “dna_string.”
+Projects I did in the class "CSC 306" (Interdisciplinary Programming) at San Francisco State University. 
+These projects use Python to practice data analysis skills useful in life science fields
 
-# •	Part 2 – reverse_compliment:
-# The function “reverse_compliment” takes a DNA string as its parameter and creates a reverse compliment of that DNA string. 
-# I called the function “reverse_compliment” and input the variable “dna_string” from part one to find the reverse complement of “dna_string”. 
-# I assigned that reverse compliment to the variable “r_dna_string."
+Jessie Davidson
 
-# •	Part 3 – orf_finder:
-# The function “orf_finder” finds the ORFs in a DNA string. 
-# In this case, ORFs are defined as starting with the codon “ATG” and ending with a codon “TAA,” “TGA,” or “TAG.” 
-# I then used this function to find the ORFs for the six possible reading frames in the DNA sequence. 
-# The strings dna_string, and r_dna_string were sliced and put into the function to find the ORFs for each reading frame. 
-# For example:
-# 	dna_string[0:] was input into the function “orf_finder”, and assigned to variable “orfs1”
-# 	dna_string[1:] was input into the function “orf_finder”, and assigned to variable “orfs2”
-# 	dna_string[0:] was input into the function “orf_finder”, and assigned to variable “orfs3”
-# 	r_dna_string[0:] was input into the function “orf_finder”, and assigned to variable “r_orfs1”
-# 	r_dna_string[1:] was input into the function “orf_finder”, and assigned to variable “r_orfs2”
-# 	r_dna_string[0:] was input into the function “orf_finder”, and assigned to variable “r_orfs3
-# The ORFs found for all the reading frames were combined into a single list, assigned to the variable “all_orfs. 
-# There were 115 ORFs in total. 
+CSC 306
 
-# •	Part 4 – translate:
-# The function “translate” takes the parameter of an “orf_list,” and filters out any ORFs with a length of less than 400 nucleotides. 
-# I used a length of 400 nucleotides because that was the length Professor Nelson gave us in class. 
-# That number was found by running simulations using histograms and p-values of random ORF lengths to find a cut-off number. 
-# After the ORFs are filtered, the ones that remain are likely genes, there should be 9 total.  
-# The genes are then each translated into strings of amino acids and put into a list.
+Project 1: Gene Finding
 
-# •	Part 5 – fasta_writer:
-# The function “fasta_writer” was provided to us to use for the project, and I did not write it. 
-# It takes the parameters “gene_list,” and “output_filename.” 
-# It takes the list of translated genes (the “gene_list”), and formats it into a fasta file, with a new name (taken from the “output_filename” parameter).
+Gene Finding Project Report
 
-# •	Part 6 – gene_finder:
-# The function “gene_finder” puts all the previous code and functions together. 
-# It takes the parameters “file,” and “new_filename.”  It uses “read_fasta” to read the initial file (from the parameter “file”), puts it in a string, and assigns it to the variable “dna_string.” 
-# It uses the function “reverse_compeiment” to find the reverse complement of “dna_string” and assigns it to the variable “r_dna_string.” 
-# Then it uses the “orf_finder” function to find the ORFs for the six possible reading frames and puts them into lists for each reading frame (assigned to the variables: orfs1, orfs2, orfs3, r_orfs1, r_orfs2, r_orfs3). 
-# Those lists are combined and assigned to the variable “all_orfs.” 
-# The function “translate” is then used to filter out the ORFs in the “all_orfs” to just the ORFs that are likely genes (any ORFs that have 400 or more nucleotides, there should be 9 genes total), those genes are then translated into amino acids. 
-# That list of genes translated into amino acids is assigned the variable “amino_acids.” 
-# Lastly, the function “fasta_writer,” is used to create a new file using the “amino_acids” list as the contents, and the input for the parameter “new_filename” as the name of the file. 
+Pseudocode:
+•	Part 1 – read_fasta:
+ The function ”read_fasta”  reads a fasta file and puts its contents into a string. 
+ I then called the function  “read_fasta,” input the file 'X73525.fasta', and assigned it to the variable “dna_string.”
 
-# I called this function with the inputs 'X73525.fasta', and 'X73525_genes.fasta' to create the fasta file that I will input into NCBI pBLAST.
+•	Part 2 – reverse_compliment:
+ The function “reverse_compliment” takes a DNA string as its parameter and creates a reverse compliment of that DNA string. 
+ I called the function “reverse_compliment” and input the variable “dna_string” from part one to find the reverse complement of “dna_string”. 
+ I assigned that reverse compliment to the variable “r_dna_string."
 
-# Results:
-# •	Basic Results:
-# I found 115 ORFs from the 6 possible DNA reading frames.  From those 115 ORFs, I found and translated 9 genes. 
+•	Part 3 – orf_finder:
+ The function “orf_finder” finds the ORFs in a DNA string. 
+ In this case, ORFs are defined as starting with the codon “ATG” and ending with a codon “TAA,” “TGA,” or “TAG.” 
+ I then used this function to find the ORFs for the six possible reading frames in the DNA sequence. 
+ The strings dna_string, and r_dna_string were sliced and put into the function to find the ORFs for each reading frame. 
+ For example:
+  	dna_string[0:] was input into the function “orf_finder”, and assigned to variable “orfs1”
+  	dna_string[1:] was input into the function “orf_finder”, and assigned to variable “orfs2”
+  	dna_string[0:] was input into the function “orf_finder”, and assigned to variable “orfs3”
+  	r_dna_string[0:] was input into the function “orf_finder”, and assigned to variable “r_orfs1”
+  	r_dna_string[1:] was input into the function “orf_finder”, and assigned to variable “r_orfs2”
+  	r_dna_string[0:] was input into the function “orf_finder”, and assigned to variable “r_orfs3
+ The ORFs found for all the reading frames were combined into a single list, assigned to the variable “all_orfs. 
+ There were 115 ORFs in total. 
 
-# •	BLASTing results:
-# These samples appear to be from the species Salmonella enterica. 
-# Several serotypes of this species also came up, including serovars:
-# o	Abony, Agbeni, Alachua, Bovismorbificans, Corvallis, Gaminara, Kentucky, Mishmarhaemek, Muenchen, Nagoya, Oranienburg, Saintpaul, Typhimurium, Virginia, Wangata
+•	Part 4 – translate:
+ The function “translate” takes the parameter of an “orf_list,” and filters out any ORFs with a length of less than 400 nucleotides. 
+ I used a length of 400 nucleotides because that was the length Professor Nelson gave us in class. 
+ That number was found by running simulations using histograms and p-values of random ORF lengths to find a cut-off number. 
+ After the ORFs are filtered, the ones that remain are likely genes, there should be 9 total.  
+ The genes are then each translated into strings of amino acids and put into a list.
 
-# All the results have a score of either 613 or 612, the maximum score is 613. 
-# The scores for BLASTp are determined through a scoring matrix (BLAST Scoring and Statistics, n.d.) based on the amino acid substitutions in the proteins (BLAST Quick Start, n.d.) 
-# When the amino acids are the same positive points are added to the score, when the amino acids are different, negative points are added. 
-# Therefore, the closer the score is to the maximum score, the higher the sequence similarity. 
-# Since all results have a score of either 613 (the same as the maximum score) or 612 (one amino acid less than the maximum score), the sequence similarity is near 100%. 
+•	Part 5 – fasta_writer:
+ The function “fasta_writer” was provided to us to use for the project, and I did not write it. 
+ It takes the parameters “gene_list,” and “output_filename.” 
+ It takes the list of translated genes (the “gene_list”), and formats it into a fasta file, with a new name (taken from the “output_filename” parameter).
 
-# These genes are part of the “Salmonella Pathogenicity Island 1 (SPI-1)” (Lerminiaux et al., 2020) which “encodes a type three secretion system (T3SS)” (Lerminiaux et al., 2020). 
-# In other words, this gene island encodes proteins to form a system that allows salmonella cells to infect animal intestines (Lou et al., 2019).  
-# As far as I can tell, all the genes I found have matches in the BLAST database. 
+•	Part 6 – gene_finder:
+ The function “gene_finder” puts all the previous code and functions together. 
+ It takes the parameters “file,” and “new_filename.”  It uses “read_fasta” to read the initial file (from the parameter “file”), puts it in a string, and assigns it to the variable “dna_string.” 
+ It uses the function “reverse_compeiment” to find the reverse complement of “dna_string” and assigns it to the variable “r_dna_string.” 
+ Then it uses the “orf_finder” function to find the ORFs for the six possible reading frames and puts them into lists for each reading frame (assigned to the variables: orfs1, orfs2, orfs3, r_orfs1, r_orfs2, r_orfs3). 
+ Those lists are combined and assigned to the variable “all_orfs.” 
+ The function “translate” is then used to filter out the ORFs in the “all_orfs” to just the ORFs that are likely genes (any ORFs that have 400 or more nucleotides, there should be 9 genes total), those genes are then translated into amino acids. 
+ That list of genes translated into amino acids is assigned the variable “amino_acids.” 
+ Lastly, the function “fasta_writer,” is used to create a new file using the “amino_acids” list as the contents, and the input for the parameter “new_filename” as the name of the file. 
 
-# Citations:
+ I called this function with the inputs 'X73525.fasta', and 'X73525_genes.fasta' to create the fasta file that I will input into NCBI pBLAST.
 
-# BLAST Quick Start. (n.d.). [Training Material and Manuals]. U.S. National Library of Medicine. Retrieved November 16, 2024, from https://www.nlm.nih.gov/ncbi/workshops/2023-08_BLAST_evol/first_search.html#results
+Results:
+•	Basic Results:
+ I found 115 ORFs from the 6 possible DNA reading frames.  From those 115 ORFs, I found and translated 9 genes. 
 
-# BLAST Scoring and Statistics. (n.d.). [Training Material and Manuals]. U.S. National Library of Medicine. Retrieved November 16, 2024, from https://www.nlm.nih.gov/ncbi/workshops/2023-08_BLAST_evol/blast_score.html
+•	BLASTing results:
+ These samples appear to be from the species Salmonella enterica. 
+ Several serotypes of this species also came up, including serovars:
+  Abony, Agbeni, Alachua, Bovismorbificans, Corvallis, Gaminara, Kentucky, Mishmarhaemek, Muenchen, Nagoya, Oranienburg, Saintpaul, Typhimurium, Virginia, Wangata
 
-# Lerminiaux, N. A., MacKenzie, K. D., & Cameron, A. D. S. (2020). Salmonella Pathogenicity Island 1 (SPI-1): The Evolution and Stabilization of a Core Genomic Type Three Secretion System. Microorganisms, 8(4), 576. https://doi.org/10.3390/microorganisms8040576
+ All the results have a score of either 613 or 612, the maximum score is 613. 
+ The scores for BLASTp are determined through a scoring matrix (BLAST Scoring and Statistics, n.d.) based on the amino acid substitutions in the proteins (BLAST Quick Start, n.d.) 
+ When the amino acids are the same positive points are added to the score, when the amino acids are different, negative points are added. 
+ Therefore, the closer the score is to the maximum score, the higher the sequence similarity. 
+ Since all results have a score of either 613 (the same as the maximum score) or 612 (one amino acid less than the maximum score), the sequence similarity is near 100%. 
 
-# Lou, L., Zhang, P., Piao, R., & Wang, Y. (2019). Salmonella Pathogenicity Island 1 (SPI-1) and Its Complex Regulatory Network. Frontiers in Cellular and Infection Microbiology, 9, 270. https://doi.org/10.3389/fcimb.2019.00270
+ These genes are part of the “Salmonella Pathogenicity Island 1 (SPI-1)” (Lerminiaux et al., 2020) which “encodes a type three secretion system (T3SS)” (Lerminiaux et al., 2020). 
+ In other words, this gene island encodes proteins to form a system that allows salmonella cells to infect animal intestines (Lou et al., 2019).  
+ As far as I can tell, all the genes I found have matches in the BLAST database. 
+
+Citations:
+
+ BLAST Quick Start. (n.d.). [Training Material and Manuals]. U.S. National Library of Medicine. Retrieved November 16, 2024, from https://www.nlm.nih.gov/ncbi/workshops/2023-08_BLAST_evol/first_search.html#results
+
+ BLAST Scoring and Statistics. (n.d.). [Training Material and Manuals]. U.S. National Library of Medicine. Retrieved November 16, 2024, from https://www.nlm.nih.gov/ncbi/workshops/2023-08_BLAST_evol/blast_score.html
+
+ Lerminiaux, N. A., MacKenzie, K. D., & Cameron, A. D. S. (2020). Salmonella Pathogenicity Island 1 (SPI-1): The Evolution and Stabilization of a Core Genomic Type Three Secretion System. Microorganisms, 8(4), 576. https://doi.org/10.3390/microorganisms8040576
+
+ Lou, L., Zhang, P., Piao, R., & Wang, Y. (2019). Salmonella Pathogenicity Island 1 (SPI-1) and Its Complex Regulatory Network. Frontiers in Cellular and Infection Microbiology, 9, 270. https://doi.org/10.3389/fcimb.2019.00270
 
