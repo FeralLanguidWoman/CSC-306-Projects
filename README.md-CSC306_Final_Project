@@ -1,107 +1,130 @@
+CSC-306-Projects
+
+Projects I did in the class "CSC 306" (Interdisciplinary Programming) at San Francisco State University. 
+These projects use Python to practice data analysis skills useful in life science fields
+
 Jessie Davidson
-CSC 306
-Section 2
-Python Project 2
-Link to Colab Notebook: https://colab.research.google.com/drive/1FXJYSqK-n4_5fbTGHNiLRkrD6ehZq3AA?usp=sharing
+
+Python Project 2 (Final Project)
 
 Part 1:
-The COVID-19 pandemic severely affected the entire world and resulted in over a million deaths related to the virus in the United States alone. Two of the most impacted states in the US were California and New York, thanks to their large populations and densely populated cities. In part one of this project report, I will be looking at three different factors:
-•	A graph showing the average COVID-19 deaths per one hundred thousand people in California and New York throughout the pandemic (part 1a)
-•	The effective reproduction numbers (R) for California and New York at 3 different points during the pandemic (part 1b)
-•	Graphs looking at the average number of cases, deaths, and the percentage of fully vaccinated people in Santa Clara County, California (part 1c)
+The COVID-19 pandemic severely affected the entire world and resulted in over a million deaths related to the virus in the United States alone. 
+Two of the most impacted states in the US were California and New York, thanks to their large populations and densely populated cities.
+
+In part one of this project report, I will be looking at three different factors:
+ •	A graph showing the average COVID-19 deaths per one hundred thousand people in California and New York throughout the pandemic (part 1a)
+ •	The effective reproduction numbers (R) for California and New York at 3 different points during the pandemic (part 1b)
+ •	Graphs looking at the average number of cases, deaths, and the percentage of fully vaccinated people in Santa Clara County, California (part 1c)
+
 To make these graphs and to find the effective reproduction number (R), I used the following datasets:
-•	General COVID-19 data (such as average cases, deaths, etc.) for all 50 states from the New York Times. This data was assigned to the variable state_data
-•	General COVID-19 data for US counties, this data set was formed from four concatenated datasets from 2020, 2021, 2022, and 2023. All the datasets were from the New York Times. This data was assigned to the variable county data
-•	COVID-19 vaccination data from the LA Times for US counties. This data was assigned to the variable county_vax
+ •	General COVID-19 data (such as average cases, deaths, etc.) for all 50 states from the New York Times. 
 
-I will begin with the graph I made in part 1a of this project, showing the average COVID-19 deaths per one hundred thousand people in California and New York throughout the pandemic.  
-Figure 1. A graph of average COVID-19 deaths per 100k in CA and NY. From 2020 through 2023. This data came from the state_data dataset from the New York Times.
-I made this graph using the Python libraries Pandas, Matplotlib.pyplot, and Seaborn. I used Pandas to parse through the datasets and index them. This made it so I would be able to work with just the data from California, New York, and Santa Clara County. I then used Matplotlib.pyplot, and Seaborn to graph the data I filtered with Pandas. I used Matplotlib.pyplot to graph the data, and I used Seaborn to improve the appearance of the graphs. 
-Regarding the data presented on the graph, the most notable aspect that I noticed is that there was a large peak in COVID-19 deaths in New York in mid-2020. I’d hypothesize this is because New York City is in the State of New York, and NYC has a high population density. In addition, it was early in the Pandemic at that time, and there was little research on the virus. Thus, experts were still figuring out the best ways to mitigate and defend against the spread, and there was not yet a vaccine. So that coupled with a city with a very high population density likely resulted in a high death rate in mid-2020. California appears to have peaked in deaths in early 2021, interestingly after the vaccine came out. However, that peak is nowhere near as large as the mid-2020 New York covid peak. To get a better idea of how COVID-19 spread at different points throughout the pandemic, I will now address the effective reproduction numbers (R) I found in part 1b.
+This data was assigned to the variable state_data
+ •	General COVID-19 data for US counties, this data set was formed from four concatenated datasets from 2020, 2021, 2022, and 2023. All the datasets were from the New York Times. This data was assigned to the variable county data
+ •	COVID-19 vaccination data from the LA Times for US counties. This data was assigned to the variable county_vax
 
-•	How was the effective reproduction number R different at the 3 different time intervals in CA and NY? What do you think caused these differences? 
-According to the CDC, an effective reproduction number, or “R,” “measures the number of persons infected by an infectious person when some portion of the population has already been infected (Sharma, et al).” Essentially the effective reproduction number represents the rate at which a disease spreads in a population that already has many infected individuals. Thus, if R is high at a point in time, then we know that the infection rate was high. 
+I will begin with the graph I made in part 1a of this project, showing the average COVID-19 deaths per one hundred thousand people in California and New York throughout the pandemic.
+ Figure 1. A graph of average COVID-19 deaths per 100k in CA and NY. From 2020 through 2023. This data came from the state_data dataset from the New York Times.
+
+I made this graph using the Python libraries Pandas, Matplotlib.pyplot, and Seaborn. 
+ I used Pandas to parse through the datasets and index them. 
+ This made it so I would be able to work with just the data from California, New York, and Santa Clara County. 
+ I then used Matplotlib.pyplot, and Seaborn to graph the data I filtered with Pandas. 
+ I used Matplotlib.pyplot to graph the data, and I used Seaborn to improve the appearance of the graphs. 
+
+Regarding the data presented on the graph, the most notable aspect that I noticed is that there was a large peak in COVID-19 deaths in New York in mid-2020. 
+ I’d hypothesize this is because New York City is in the State of New York, and NYC has a high population density. 
+ In addition, it was early in the Pandemic at that time, and there was little research on the virus. 
+ Thus, experts were still figuring out the best ways to mitigate and defend against the spread, and there was not yet a vaccine. 
+ So that coupled with a city with a very high population density likely resulted in a high death rate in mid-2020. 
+ California appears to have peaked in deaths in early 2021, interestingly after the vaccine came out. 
+ However, that peak is nowhere near as large as the mid-2020 New York covid peak. 
+
+
+To get a better idea of how COVID-19 spread at different points throughout the pandemic, I will now address the effective reproduction numbers (R) I found in part 1b.
+
+According to the CDC, an effective reproduction number, or “R,” “measures the number of persons infected by an infectious person when some portion of the population has already been infected (Sharma, et al).” 
+Essentially the effective reproduction number represents the rate at which a disease spreads in a population that already has many infected individuals. 
+Thus, if R is high at a point in time, then we know the infection rate was high. 
+
 I found the effective reproduction numbers for California and New York by creating a function called “R_value” to filter the state_data dataset and calculate the number. I used the Python libraries Numpy, Pandas, and Scipy .stats (lineregress only). 
-•	CA R-Values:
-o	March 14th, 2020 – April 1st, 2020: 2.810597802083794
-o	November 20th, 2020 – December 20th, 2020: 1.2930863356846372
-o	February 1st, 2021 – March 1st, 2021: 0.9009879243869238
-•	NY R-Values:
-o	March 14th, 2020 – April 1st, 2020: 8.02561907248394
-	This is the effective reproduction number I found.  The time it occurs also lines up with the peak in deaths in New York in mid-2020 we saw on the graph from part 1a. Such a high rate of infection likely accounts for the large spike in COVID-19 deaths in New York.
-o	November 20th, 2020 – December 20th, 2020: 1.2392934214696347
-o	February 1st, 2021 – March 1st, 2021: 0.9125593295798026
-COVID-19 also had a big impact on me in my home county of Santa Clara. The graph I made for part 1c, displays the average cases, deaths, and percentage of people vaccinated in Santa Clara County throughout the pandemic. 
+ •	CA R-Values:
+  March 14th, 2020 – April 1st, 2020: 2.810597802083794
+  November 20th, 2020 – December 20th, 2020: 1.2930863356846372
+  February 1st, 2021 – March 1st, 2021: 0.9009879243869238
+ •	NY R-Values:
+  March 14th, 2020 – April 1st, 2020: 8.02561907248394
+     This is the effective reproduction number I found.  
+     The time it occurs also lines up with the peak in deaths in New York in mid-2020 we saw on the graph from part 1a. 
+     Such a high rate of infection likely accounts for the large spike in COVID-19 deaths in New York.
+  November 20th, 2020 – December 20th, 2020: 1.2392934214696347
+  February 1st, 2021 – March 1st, 2021: 0.9125593295798026
+
+
+COVID-19 also had a big impact on me in my home county of Santa Clara. 
+ The graph I made for part 1c, displays the average cases, deaths, and percentage of people vaccinated in Santa Clara County throughout the pandemic. 
  
-Figure 2. Graphs of COVID-19 cases, deaths, and vaccinations in Santa Clara County. This data came from The New York Times county_data, and The LA Times county_vax
-In the last year and a half, the situation in Santa Clara County became much less severe. The average amount of deaths and cases dropped compared to 2021 and 2022, and the percentage of fully vaccinated people plateaued above 80%. The drop in deaths and cases is likely due to the high vaccination rates.
+  Figure 2. Graphs of COVID-19 cases, deaths, and vaccinations in Santa Clara County. 
+            This data came from The New York Times county_data, and The LA Times county_vax
+
+ In the last year and a half, the situation in Santa Clara County became much less severe. 
+ The average amount of deaths and cases dropped compared to 2021 and 2022, and the percentage of fully vaccinated people plateaued above 80%. 
+ The drop in deaths and cases is likely due to the high vaccination rates.
  
 Part 2:
-The question I chose for part two:
-•	Did the vaccine improve the rates of COVID-19 cases and deaths in California, New York, Texas, and Florida (the 4 most populous states)?
-I chose this question because I was curious how the vaccine affected states with large populations. I think comparing California, New York, Texas, and Florida is interesting because along with having the largest populations in the United States, they each have very different politics and approaches to the pandemic. Especially since the populations of California and New York are generally liberal and have relatively progressive governments, whereas Texas and Florida are generally conservative and have conservative governments. My hypothesis for this question is that higher vaccination rates will show a reduced number of cases/deaths. To explore this question, I will be using COVID-19 from the New York Times (state_data), and from Our World in Data (state_vax). I made both time-based line plots and bar plots with this data, I have chosen to only include the bar plots in this report because I feel that they represent the data in the best way to answer my question.  I have three categories of the bar plots:
-•	Case and death data taken before the release of the COVID-19 vaccine (from 1/1/2020 through 1/12/2021
-•	Case and death data taken after the release of the Covid-19 vaccine (from 1/12/2021 through 5/30/2023
-o	This data lines up with the vaccine data from Our World in Data
-•	Vaccination data taken since the release of the first vaccines (from 1/12/2021 through 5/30/2023)
-o	Include at least one figure that shows data relevant to the question 
-o	 If appropriate, include statistics with your figure 
-o	 If appropriate, add annotations to your figures to point out important trends or data points 
-My first figure shows the average number of COVID-19 cases per 100k before the vaccine was released. During this period, California appears to have had the greatest number of cases. 
+ The question I chose for part two:
+  •	Did the vaccine improve the rates of COVID-19 cases and deaths in California, New York, Texas, and Florida (the 4 most populous states)?
+ I chose this question because I was curious how the vaccine affected states with large populations. I think comparing California, New York, Texas, and Florida is interesting because along with having the largest populations in the United States, they each have very different politics and approaches to the pandemic. Especially since the populations of California and New York are generally liberal and have relatively progressive governments, whereas Texas and Florida are generally conservative and have conservative governments. My hypothesis for this question is that higher vaccination rates will show a reduced number of cases/deaths. To explore this question, I will be using COVID-19 from the New York Times (state_data), and from Our World in Data (state_vax). I made both time-based line plots and bar plots with this data, I have chosen to only include the bar plots in this report because I feel that they represent the data in the best way to answer my question.  I have three categories of the bar plots:
+  •	Case and death data taken before the release of the COVID-19 vaccine (from 1/1/2020 through 1/12/2021
+  •	Case and death data taken after the release of the Covid-19 vaccine (from 1/12/2021 through 5/30/2023
+    This data lines up with the vaccine data from Our World in Data
+  •	Vaccination data taken since the release of the first vaccines (from 1/12/2021 through 5/30/2023)
+
+  My first figure shows the average number of COVID-19 cases per 100k before the vaccine was released. 
+  During this period, California appears to have had the greatest number of cases. 
  
-Figure 3. Bar plot of the average number of COVID-19 cases per 100k before the vaccine was released. Data from NY Times state_data
+    Figure 3. Bar plot of the average number of COVID-19 cases per 100k before the vaccine was released. 
+             Data from NY Times state_data
 
-
-
-
-
-
-
-
-
-My second figure shows the average number of COVID-19 deaths per 100k before the vaccine was released. During this period, New York appears to have had the greatest number of deaths. 
+  My second figure shows the average number of COVID-19 deaths per 100k before the vaccine was released. 
+  During this period, New York appears to have had the greatest number of deaths. 
     
-Figure 4. Bar plot of the average number of COVID-19 deaths per 100k before the vaccine was released. Data from NY Times state_data
+    Figure 4. Bar plot of the average number of COVID-19 deaths per 100k before the vaccine was released.
+             Data from NY Times state_data
  
 
-
-
-
-
-
-
-
-
-
-My third figure shows the average number of COVID-19 cases per 100k after the vaccine was released. Notably, after the release of the vaccines, New York has the highest number of cases, and Florida overtook Texas.
+  My third figure shows the average number of COVID-19 cases per 100k after the vaccine was released. 
+  Notably, after the release of the vaccines, New York has the highest number of cases, and Florida overtook Texas.
  
-Figure 5. Bar plot of the average number of COVID-19 cases per 100k after the vaccine was released. Data from NY Times state_data
+    Figure 5. Bar plot of the average number of COVID-19 cases per 100k after the vaccine was released. 
+             Data from NY Times state_data
 
 
-
-
-
-
-
-
-
-
-
-My fourth figure shows the average number of COVID-19 deaths per 100k after the vaccine was released. After the release of the vaccine, Florida has the highest number of deaths, followed by California.
+  My fourth figure shows the average number of COVID-19 deaths per 100k after the vaccine was released. 
+  After the release of the vaccine, Florida has the highest number of deaths, followed by California.
  
-Figure 6. Bar plot of the average number of COVID-19 deaths per 100k after the vaccine was released. Data from NY Times state_data
+    Figure 6. Bar plot of the average number of COVID-19 deaths per 100k after the vaccine was released. 
+              Data from NY Times state_data
 
-
-
-
-
-
-
-My fifth figure shows the percentage of fully vaccinated individuals. They appear to have somewhat more similar vaccination rates than I expected, with New York as the highest, and Texas as the lowest.
+  My fifth figure shows the percentage of fully vaccinated individuals. 
+  They appear to have somewhat more similar vaccination rates than I expected, with New York as the highest, and Texas as the lowest.
  
-Figure 7. Bar plot of percent of people fully vaccinated since the vaccine was released. Data came from Our World in Data, state_vax
-Unfortunately, I don’t think I have enough information to answer my question. Many of the graphs are similar enough that it is difficult to tell whether any data is statistically significant. If I do a project like this in the future, I will likely try to figure out how to run an ANOVA, and find p-values using Python, because those might make it easier to see if there’s an answer to my question. That said, using the bar charts still suggested a slight answer. This is in that New York no longer had the highest number of COVID deaths after the vaccine was released, and that New York had the highest percentage of fully vaccinated people. In addition, Florida had the second-lowest percentage of fully vaccinated people and the highest number of deaths after the vaccine was released. I think that further research and analysis of the data would be needed to truly compare and demonstrate the effectiveness of the vaccines in California, New York, Texas, and Florida.
-Overall, I think I learned a lot about basic data analysis skills in Python while doing this project. I could already do a lot of what I learned during this project in R, so I was excited to learn similar skills in Python. I think what I learned doing this project will be extremely helpful to me whenever I work with Python to do data analysis in the future. I would, however, like to learn how to perform some more statistical tests, such as ANOVAs, and t-tests in Python, as I think they would have been useful for this project. I also believe that I could have filtered and plotted the datasets I used for part 2 in a way that would better answer the question I had, so I would like to learn how to make more kinds of plots using Python
+    Figure 7. Bar plot of percent of people fully vaccinated since the vaccine was released. 
+              Data came from Our World in Data, state_vax
+
+
+ Unfortunately, I don’t think I have enough information to answer my question. 
+ Many of the graphs are similar enough that it is difficult to tell whether any data is statistically significant. 
+ If I do a project like this in the future, I will likely run an ANOVA, and find p-values using Python, because those might make it easier to see if there’s an answer to my question. 
+ That said, using the bar charts still suggested a slight answer. 
+ This is in that New York no longer had the highest number of COVID deaths after the vaccine was released, and that New York had the highest percentage of fully vaccinated people. 
+ In addition, Florida had the second-lowest percentage of fully vaccinated people and the highest number of deaths after the vaccine was released. 
+ I think that further research and analysis of the data would be needed to truly compare and demonstrate the effectiveness of the vaccines in California, New York, Texas, and Florida.
+ Overall, I think I learned a lot about basic data analysis skills in Python while doing this project. 
+ I could already do a lot of what I learned during this project in R, so I was excited to learn similar skills in Python. 
+ I think what I learned doing this project will be extremely helpful to me whenever I work with Python to do data analysis in the future.
+ I would, however, like to learn how to perform some more statistical tests, such as ANOVAs, and t-tests in Python, as I think they would have been useful for this project. 
+ I also believe that I could have filtered and plotted the datasets I used for part 2 in a way that would better answer the question I had, so I would like to learn how to make more kinds of plots using Python
 
 Works Cited
 •	Sharma, V., Sharma, R., & Singh, B. B. (2023). Etymologia: Reproduction Number. Emerging Infectious Diseases, 29(8), 1547. https://doi.org/10.3201/eid2908.221445.
